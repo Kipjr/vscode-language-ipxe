@@ -1,6 +1,7 @@
 {
     "$schema":"https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
     "name":"ipxe",
+    "scopeName":"source.ipxe",
     "firstLineMatch":"^\\s*#!ipxe",
     "patterns":[
         {
@@ -166,6 +167,5 @@
                 }
             ]
         }
-    },
-    "scopeName":"source.ipxe"
+    }
 }
