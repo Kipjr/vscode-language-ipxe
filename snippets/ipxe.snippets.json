@@ -1,0 +1,967 @@
+{
+    "parameters-1":{
+        "prefix":[
+            "-para1"
+        ],
+        "body":[
+            "${1|--configurator ,--tag ,--priority ,--name ,--timeout ,--permanent ,--allow ,--drive ,--port ,--id ,--filename ,--no-describe ,--menu ,--key ,--default ,--ext ,--ecx |}"
+        ],
+        "description":[
+            "parameters"
+        ]
+    },
+    "parameters-2":{
+        "prefix":[
+            "-para2"
+        ],
+        "body":[
+            "${1|--subject ,--x ,--y ,--depth ,--left ,--right ,--top ,--bottom ,--picture ,--basic ,--rgb ,--foreground ,--background ,--size ,--count ,--mtu ,--broadcast ,--params|}"
+        ],
+        "description":[
+            "parameters"
+        ]
+    },
+    "autoboot":{
+        "prefix":[
+            "autoboot"
+        ],
+        "body":[
+            "autoboot${1| net0,\r\n|}"
+        ],
+        "description":[
+            "Boot system from network interface",
+            "autoboot [<interface>] [<interface>...]"
+        ]
+    },
+    "ifstat":{
+        "prefix":[
+            "ifstat"
+        ],
+        "body":[
+            "ifstat${1| net0,\r\n|}"
+        ],
+        "description":[
+            "Display interfaces",
+            "ifstat [<interface>] [<interface>...]"
+        ]
+    },
+    "ifopen":{
+        "prefix":[
+            "ifopen"
+        ],
+        "body":[
+            "ifopen${1| net0,\r\n|}"
+        ],
+        "description":[
+            "Open interfaces",
+            "ifopen [<interface>] [<interface>...]"
+        ]
+    },
+    "ifclose":{
+        "prefix":[
+            "ifclose"
+        ],
+        "body":[
+            "ifclose${1| net0,\r\n|}"
+        ],
+        "description":[
+            "Close interfaces",
+            "ifclose [<interface>] [<interface>...]"
+        ]
+    },
+    "ifconf":{
+        "prefix":[
+            "ifconf",
+            "dhcp"
+        ],
+        "body":[
+            "${1|ifconf,dhcp|}${2| net0,\r\n|}"
+        ],
+        "description":[
+            "Automatically configure interfaces",
+            "ifconf [--configurator <configurator>] [<interface>] [<interface>...]"
+        ]
+    },
+    "ifconf-c":{
+        "prefix":[
+            "ifconf-c",
+            "dhcp-c"
+        ],
+        "body":[
+            "${1|ifconf,dhcp|}${2| -c , --configurator |}${3|dhcp,ipv6|}${4| net0,\r\n|}"
+        ],
+        "description":[
+            "Automatically configure interfaces",
+            "ifconf [--configurator <configurator>] [<interface>] [<interface>...]"
+        ]
+    },
+    "route":{
+        "prefix":[
+            "route"
+        ],
+        "body":[
+            "route\r\n"
+        ],
+        "description":[
+            "Display routing table",
+            "route"
+        ]
+    },
+    "nstat":{
+        "prefix":[
+            "nstat"
+        ],
+        "body":[
+            "nstat\r\n"
+        ],
+        "description":[
+            "Display neighbour table",
+            "nstat"
+        ]
+    },
+    "ipstat":{
+        "prefix":[
+            "ipstat"
+        ],
+        "body":[
+            "ipstat\r\n"
+        ],
+        "description":[
+            "Display IP statistics",
+            "ipstat"
+        ]
+    },
+    "vcreate":{
+        "prefix":[
+            "vcreate"
+        ],
+        "body":[
+            "vcreate${1: --tag 123}${2| , --priority 2 |}${3:net0}"
+        ],
+        "description":[
+            "Create VLAN",
+            "vcreate --tag <tag> [--priority <priority>] <trunk interface>"
+        ]
+    },
+    "vdestroy":{
+        "prefix":[
+            "vdestroy"
+        ],
+        "body":[
+            "vdestroy${1: net0-123}"
+        ],
+        "description":[
+            "Destroy VLAN",
+            "vdestroy <VLAN interface>"
+        ]
+    },
+    "imgstat":{
+        "prefix":[
+            "imgstat"
+        ],
+        "body":[
+            "imgstat${1: pxelinux.0,\r\n}"
+        ],
+        "description":[
+            "Display images",
+            "imgstat [<name>...]"
+        ]
+    },
+    "chain":{
+        "prefix":[
+            "chain",
+            "imgexec",
+            "boot"
+        ],
+        "body":[
+            "${1|chain,imgexec,boot|}${2| http://192.168.0.1/vmlinuz vga=788 console=ttyS0\\,115200n8 console=tty0,\r\n|}"
+        ],
+        "description":[
+            "Download and boot an executable image",
+            "chain|imgexec|boot [--name <name>] [--timeout <timeout>] [<uri|image>] [<arguments>...]"
+        ]
+    },
+    "chain-n-t":{
+        "prefix":[
+            "chain-n-t",
+            "imgexec-n-t",
+            "boot-n-t"
+        ],
+        "body":[
+            "${1|chain,imgexec,boot|}${2| --name myimg, |}${3| --timeout 6000, |}${4| http://192.168.0.1/vmlinuz vga=788 console=ttyS0\\,115200n8 console=tty0,\r\n|}"
+        ],
+        "description":[
+            "Download and boot an executable image",
+            "chain|imgexec|boot [--name <name>] [--timeout <timeout>] [<uri|image>] [<arguments>...]"
+        ]
+    },
+    "initrd":{
+        "prefix":[
+            "imgfetch",
+            "module",
+            "initrd"
+        ],
+        "body":[
+            "${1|imgfetch,module,initrd|}${2| http://boot.ipxe.org/1mb,\r\n|}"
+        ],
+        "description":[
+            "Download an image",
+            "imgfetch|module|initrd [--name <name>] [--timeout <timeout>] <uri> [<arguments>...]"
+        ]
+    },
+    "initrd-n-t":{
+        "prefix":[
+            "imgfetch-n-t",
+            "module-n-t",
+            "initrd-n-t"
+        ],
+        "body":[
+            "${1|imgfetch,module,initrd|}${2| --name myimg, |}${3| --timeout 6000, |}${4| http://boot.ipxe.org/1mb,\r\n|}"
+        ],
+        "description":[
+            "Download an image",
+            "imgfetch|module|initrd [--name <name>] [--timeout <timeout>] <uri> [<arguments>...]"
+        ]
+    },
+    "kernel":{
+        "prefix":[
+            "kernel",
+            "imgselect",
+            "imgload"
+        ],
+        "body":[
+            "${1|kernel,imgselect,imgload|}${2| http://192.168.0.1/vmlinuz,\r\n|}"
+        ],
+        "description":[
+            "Download and boot an executable image",
+            "kernel|imgselect|imgload [--name <name>] [--timeout <timeout>] [<uri|image>] [<arguments>...]"
+        ]
+    },
+    "kernel-n-t":{
+        "prefix":[
+            "kernel-n-t",
+            "imgselect-n-t",
+            "imgload-n-t"
+        ],
+        "body":[
+            "${1|kernel,imgselect,imgload|}${2| --name myimg, |}${3| --timeout 6000, |}${4| http://192.168.0.1/vmlinuz,\r\n|}"
+        ],
+        "description":[
+            "Download and boot an executable image",
+            "kernel|imgselect|imgload [--name <name>] [--timeout <timeout>] [<uri|image>] [<arguments>...]"
+        ]
+    },
+    "imgfree":{
+        "prefix":[
+            "imgfree"
+        ],
+        "body":[
+            "imgfree${1| pxelinux.0,\r\n|}"
+        ],
+        "description":[
+            "Discard images",
+            "imgfree [<image>]"
+        ]
+    },
+    "imgargs":{
+        "prefix":[
+            "imgargs"
+        ],
+        "body":[
+            "imgargs${1| , --name myimg |}${2:vmlinuz vga=788 console=ttyS0,115200n8 console=tty0}"
+        ],
+        "description":[
+            "Set image command-line arguments",
+            "imgargs [--name <name>] <uri|image> [<arguments>...]"
+        ]
+    },
+    "imgtrust":{
+        "prefix":[
+            "imgtrust"
+        ],
+        "body":[
+            "imgtrust${1| --allow, --permanent,\r\n|}"
+        ],
+        "description":[
+            "Set image trust requirement",
+            "imgtrust [--allow] [--permanent]"
+        ]
+    },
+    "imgverify":{
+        "prefix":[
+            "imgverify"
+        ],
+        "body":[
+            "imgverify${1| , --signer mcb30@ipxe.org|}${2| , --keep |}${3:pxelinux.0} $3.sig"
+        ],
+        "description":[
+            "Verify an image as trusted",
+            "imgverify [--signer <signer>] [--keep] <uri|image> <signature uri|image>"
+        ]
+    },
+    "sanhook":{
+        "prefix":[
+            "sanhook"
+        ],
+        "body":[
+            "sanhook${1| , --drive 0x80|}${2| , --no-describe |}${3:iscsi:10.0.4.1:::1:iqn.2010-04.org.ipxe.dolphin:storage}"
+        ],
+        "description":[
+            "Attach SAN device",
+            "sanhook [--drive <drive>] [--no-describe] <uri> [<uri>...]"
+        ]
+    },
+    "sanboot":{
+        "prefix":[
+            "sanboot"
+        ],
+        "body":[
+            "sanboot${1| , --drive 0x80|}${2| , --filename \\EFI\\redhat\\grub.efi|}${3| , --no-describe|}${4| , --keep |}${5|iscsi:10.0.4.1:::1:iqn.2010-04.org.ipxe.dolphin:storage,http://boot.ipxe.org/freedos/fdfullcd.iso,\r\n|}"
+        ],
+        "description":[
+            "Boot from SAN device",
+            "sanboot [--drive <drive>] [--filename <filename>] [--no-describe] [--keep] [<uri>] [<uri>...]"
+        ]
+    },
+    "fcstat":{
+        "prefix":[
+            "fcstat"
+        ],
+        "body":[
+            "fcstat\r\n"
+        ],
+        "description":[
+            "Display Fibre Channel ports",
+            "fcstat"
+        ]
+    },
+    "fcels":{
+        "prefix":[
+            "fcels"
+        ],
+        "body":[
+            "fcels${1| , --port 20:00:52:54:00:12:34:56|}${2| , --id 18.ae.01 |}${3|flogi,plogi,prli-fcp,logo,echo|}"
+        ],
+        "description":[
+            "Issue Fibre Channel ELS request",
+            "fcels [--port <port>] [--id <peer port id>] <request>"
+        ]
+    },
+    "config":{
+        "prefix":[
+            "config"
+        ],
+        "body":[
+            "config${1| net0, smbios,\r\n|}"
+        ],
+        "description":[
+            "Start interactive configuration tool",
+            "config [<scope>]"
+        ]
+    },
+    "show":{
+        "prefix":[
+            "show"
+        ],
+        "body":[
+            "show${1| net0/ip, filename, 42:ipv4|}"
+        ],
+        "description":[
+            "Display configuration setting",
+            "show <setting>"
+        ]
+    },
+    "set":{
+        "prefix":[
+            "set"
+        ],
+        "body":[
+            "set${1| net0/ip 192.168.0.100, esc:hex 1b, dns 192.168.0.1|}"
+        ],
+        "description":[
+            "Set configuration setting",
+            "set <setting> <value>"
+        ]
+    },
+    "clear":{
+        "prefix":[
+            "clear"
+        ],
+        "body":[
+            "clear${1| net0/ip, dns|}"
+        ],
+        "description":[
+            "Delete configuration setting",
+            "clear <setting>"
+        ]
+    },
+    "read":{
+        "prefix":[
+            "read"
+        ],
+        "body":[
+            "read${1| net0/ip, dns, 42:ipv4|}"
+        ],
+        "description":[
+            "Prompt user to enter configuration setting",
+            "read <setting>"
+        ]
+    },
+    "inc":{
+        "prefix":[
+            "inc"
+        ],
+        "body":[
+            "inc${1: idx}${2| 2,\r\n|}"
+        ],
+        "description":[
+            "Increment numeric value of configuration setting",
+            "inc <setting> [<increment>]"
+        ]
+    },
+    "login":{
+        "prefix":[
+            "login"
+        ],
+        "body":[
+            "login\r\n"
+        ],
+        "description":[
+            "Prompt user to enter user name and password",
+            "login"
+        ]
+    },
+    "isset":{
+        "prefix":[
+            "isset"
+        ],
+        "body":[
+            "isset ${${1|filename,dns|}}${2| && , \\|\\| ,\r\n|}"
+        ],
+        "description":[
+            "Test for existence",
+            "isset <value>"
+        ]
+    },
+    "iseq":{
+        "prefix":[
+            "iseq"
+        ],
+        "body":[
+            "iseq ${${1|filename,dns|}} ${${2|net0/ip,filename,dns|}}${3| && , \\|\\| ,\r\n|}"
+        ],
+        "description":[
+            "Test for equality",
+            "iseq <value1> <value2>"
+        ]
+    },
+    "goto":{
+        "prefix":[
+            "goto"
+        ],
+        "body":[
+            "goto lable_${${1|hostname,dns|}}${2| \\|\\| ,\r\n|}"
+        ],
+        "description":[
+            "Jump to script label",
+            "goto <label>"
+        ]
+    },
+    "exit":{
+        "prefix":[
+            "exit"
+        ],
+        "body":[
+            "exit${1| 1, 0,\r\n|}"
+        ],
+        "description":[
+            "Exit current shell or script",
+            "exit [<status>]"
+        ]
+    },
+    "menu":{
+        "prefix":[
+            "menu"
+        ],
+        "body":[
+            "menu${1: --name unnamed${2| , --delete|}}${3| Please choose an operating system to boot,\r\n|}"
+        ],
+        "description":[
+            "Create menu",
+            "menu [--name <name>] [--delete] [<title>]"
+        ]
+    },
+    "item":{
+        "prefix":[
+            "item"
+        ],
+        "body":[
+            "item${1| , --menu unnamed |}${2:--key ${3|0x01,0x107e,0x127e,0x137e,0x147e,0x157e,0x167e,0x187e,0x197e|}}${4| , --default |}${5|lable,--gap,--gap --|} Boot Windows"
+        ],
+        "description":[
+            "Add menu item",
+            "item [--menu <menu>] [--key <key>] [--default] [<label>|--gap [<text>]]"
+        ]
+    },
+    "choose":{
+        "prefix":[
+            "choose"
+        ],
+        "body":[
+            "choose${1| , --menu unnamed|}${2| , --default label|}${3| , --timeout 6000|}${4| , --keep |}SELOS"
+        ],
+        "description":[
+            "Choose menu item",
+            "choose [--menu <menu>] [--default <label>] [--timeout <timeout>] [--keep] <setting>"
+        ]
+    },
+    "certstat":{
+        "prefix":[
+            "certstat"
+        ],
+        "body":[
+            "certstat${1| --subject forum.ipxe.org,\r\n|}"
+        ],
+        "description":[
+            "Display certificates",
+            "certstat [--subject <subject>]"
+        ]
+    },
+    "certstore":{
+        "prefix":[
+            "certstore"
+        ],
+        "body":[
+            "certstore${1| , --subject forum.ipxe.org|}${2| , --keep|}${3| http://ca.ipxe.org/ca.crt,\r\n|}"
+        ],
+        "description":[
+            "Manage certificates",
+            "certstore [--subject <subject>] [--keep] [<uri>]"
+        ]
+    },
+    "certfree":{
+        "prefix":[
+            "certfree"
+        ],
+        "body":[
+            "certfree${1| --subject forum.ipxe.org,\r\n|}"
+        ],
+        "description":[
+            "Discard certificates",
+            "certfree [--subject <subject>]"
+        ]
+    },
+    "console":{
+        "prefix":[
+            "console"
+        ],
+        "body":[
+            "console${1| --x 1024 --y 768, |}${2| --depth 32,\r\n|}$0",
+            "console${3: --picture http://boot.ipxe.org/texture.png${4| --keep, |}}${5| --left 32 --right 32 --top 32 --bottom 48,\r\n|}"
+        ],
+        "description":[
+            "Configure console",
+            "console [--x <width>] [--y <height>]",
+            "[--left <left margin>] [--right <right margin>]",
+            "[--top <top margin>] [--bottom <bottom margin>]",
+            "[--depth <colour depth>]",
+            "[--picture <background picture>] [--keep]"
+        ]
+    },
+    "colour":{
+        "prefix":[
+            "colour"
+        ],
+        "body":[
+            "colour${1: --basic ${2|0,1,2,3,15,5,6,7,9|}}${3| --rgb 0x40e0d0 , |}${4|0,1,2,3,4,5,6,7|}"
+        ],
+        "description":[
+            "Define colour",
+            "colour [--basic <basic ANSI colour>] [--rgb <RGB value>] <colour>"
+        ]
+    },
+    "cpair":{
+        "prefix":[
+            "cpair"
+        ],
+        "body":[
+            "cpair${1| --foreground 3 --background 6 , |}${2|0,1,2,3,4,5,6,7|}"
+        ],
+        "description":[
+            "Define colour pair",
+            "cpair [--foreground <foreground>] [--background <background>] <pair index>"
+        ]
+    },
+    "params":{
+        "prefix":[
+            "params"
+        ],
+        "body":[
+            "params${1: --name unnamed${2| --delete,\r\n|}}"
+        ],
+        "description":[
+            "Create form parameter list",
+            "params [--name <name>] [--delete]"
+        ]
+    },
+    "param":{
+        "prefix":[
+            "param"
+        ],
+        "body":[
+            "param${1| --params unnamed , |}${2:key} ${3|${net0/mac},XXX|}"
+        ],
+        "description":[
+            "Add form parameter",
+            "param [--params <params>] <key> <value>"
+        ]
+    },
+    "echo":{
+        "prefix":[
+            "echo"
+        ],
+        "body":[
+            "echo${1| , -n |}${3|${net0/mac},XXX|}"
+        ],
+        "description":[
+            "Print text to console",
+            "echo [-n] [...]"
+        ]
+    },
+    "prompt":{
+        "prefix":[
+            "prompt"
+        ],
+        "body":[
+            "prompt${1: --key ${2|0x01,0x107e,0x127e,0x137e,0x147e,0x157e,0x167e,0x187e,0x197e|}}${3| --timeout 6000 , |}${4:Wait for the user to press a key}"
+        ],
+        "description":[
+            "Prompt user to press key",
+            "prompt [--key <key>] [--timeout <timeout>] [<text>]"
+        ]
+    },
+    "shell":{
+        "prefix":[
+            "shell"
+        ],
+        "body":[
+            "shell\r\n"
+        ],
+        "description":[
+            "Start new interactive shell",
+            "shell"
+        ]
+    },
+    "help":{
+        "prefix":[
+            "help"
+        ],
+        "body":[
+            "help\r\n"
+        ],
+        "description":[
+            "Display list of available commands",
+            "help"
+        ]
+    },
+    "sleep":{
+        "prefix":[
+            "sleep"
+        ],
+        "body":[
+            "sleep${1: 10}"
+        ],
+        "description":[
+            "Delay for fixed period of time",
+            "sleep <seconds>"
+        ]
+    },
+    "reboot":{
+        "prefix":[
+            "reboot"
+        ],
+        "body":[
+            "reboot\r\n"
+        ],
+        "description":[
+            "Reboot system",
+            "reboot"
+        ]
+    },
+    "poweroff":{
+        "prefix":[
+            "poweroff"
+        ],
+        "body":[
+            "poweroff\r\n"
+        ],
+        "description":[
+            "Power off system",
+            "poweroff"
+        ]
+    },
+    "cpuid":{
+        "prefix":[
+            "cpuid"
+        ],
+        "body":[
+            "cpuid${1| --ext 29, 6, --ecx 5, --ext --ecx 2, 15|}${2| \\|\\| , && |}"
+        ],
+        "description":[
+            "Check x86 CPU feature",
+            "cpuid [--ext] [--ecx] <bit number>"
+        ]
+    },
+    "sync":{
+        "prefix":[
+            "sync"
+        ],
+        "body":[
+            "sync${1| --timeout 1000,\r\n|}"
+        ],
+        "description":[
+            "Wait for background operations to complete",
+            "sync [--timeout <timeout>]"
+        ]
+    },
+    "nslookup":{
+        "prefix":[
+            "nslookup"
+        ],
+        "body":[
+            "nslookup ${1|address,net0/next-server|} ${2:boot.ipxe.org}"
+        ],
+        "description":[
+            "Resolve host name to network address",
+            "nslookup <setting> <hostname>"
+        ]
+    },
+    "ping":{
+        "prefix":[
+            "ping"
+        ],
+        "body":[
+            "ping${1| --size 64, |}${2| --timeout 1000, |}${3| --count 1 , |}${4:boot.ipxe.org}"
+        ],
+        "description":[
+            "Check network connectivity",
+            "ping [--size <size>] [--timeout <timeout>] [--count <count>] <host>"
+        ]
+    },
+    "ntp":{
+        "prefix":[
+            "ntp"
+        ],
+        "body":[
+            "ntp ${1:pool.ntp.org}"
+        ],
+        "description":[
+            "Get time and date via NTP",
+            "ntp <host>"
+        ]
+    },
+    "pciscan":{
+        "prefix":[
+            "pciscan"
+        ],
+        "body":[
+            "pciscan ${1:addr}"
+        ],
+        "description":[
+            "Scan for PCI devices",
+            "pciscan <setting>"
+        ]
+    },
+    "lotest":{
+        "prefix":[
+            "lotest"
+        ],
+        "body":[
+            "lotest${1| , --mtu 1500|}${2| , --broadcast |}${3:net0} ${4:net1}"
+        ],
+        "description":[
+            "Perform loopback testing",
+            "lotest [--mtu <mtu>] [--broadcast] <sending interface> <receiving interface>"
+        ]
+    },
+    "pxebs":{
+        "prefix":[
+            "pxebs"
+        ],
+        "body":[
+            "pxebs ${1:net0} ${2:3}"
+        ],
+        "description":[
+            "Perform PXE boot server discovery",
+            "pxebs <interface> <server type>"
+        ]
+    },
+    "time":{
+        "prefix":[
+            "time"
+        ],
+        "body":[
+            "time ${1:imgfetch http://192.168.0.1/10mb}"
+        ],
+        "description":[
+            "Measure time taken to execute command",
+            "time <command> [<arguments>]"
+        ]
+    },
+    "gdbstub":{
+        "prefix":[
+            "gdbstub"
+        ],
+        "body":[
+            "gdbstub ${1|serial,udp net1|}"
+        ],
+        "description":[
+            "Start remote debugging",
+            "gdbstub <transport> [<options>...]"
+        ]
+    },
+    "profstat":{
+        "prefix":[
+            "profstat"
+        ],
+        "body":[
+            "profstat\r\n"
+        ],
+        "description":[
+            "Display profiling statistics",
+            "profstat"
+        ]
+    },
+    "setting-type":{
+        "prefix":[
+            ":setting-type"
+        ],
+        "body":[
+            "${1|:hex,:string,:uint32,:int8,:ipv4,:uuid,:base64,:uristring,:busdevfn|}"
+        ],
+        "description":[
+            "Setting type"
+        ]
+    },
+    "setting-network":{
+        "prefix":[
+            "setting-network"
+        ],
+        "body":[
+            "${1|mac,bustype,busloc,busid,chip,ssid,active-scan,key|}"
+        ],
+        "description":[
+            "Network device settings"
+        ]
+    },
+    "setting-ipv4":{
+        "prefix":[
+            "setting-ipv4"
+        ],
+        "body":[
+            "${1|ip,netmask,gateway,dns,domain|}"
+        ],
+        "description":[
+            "IPv4 settings"
+        ]
+    },
+    "setting-boot":{
+        "prefix":[
+            "setting-boot"
+        ],
+        "body":[
+            "${1|filename,next-server,root-path,san-filename,initiator-iqn,keep-san,skip-san-boot|}"
+        ],
+        "description":[
+            "Boot settings"
+        ]
+    },
+    "setting-host":{
+        "prefix":[
+            "setting-host"
+        ],
+        "body":[
+            "${1|hostname,uuid,user-class,manufacturer,product,serial|}"
+        ],
+        "description":[
+            "Host settings"
+        ]
+    },
+    "setting-authentication":{
+        "prefix":[
+            "setting-authentication"
+        ],
+        "body":[
+            "${1|username,password,reverse-username,reverse-password|}"
+        ],
+        "description":[
+            "Authentication settings"
+        ]
+    },
+    "setting-cryptography":{
+        "prefix":[
+            "setting-cryptography"
+        ],
+        "body":[
+            "${1|crosscert,trust,cert,privkey|}"
+        ],
+        "description":[
+            "Cryptography settings"
+        ]
+    },
+    "setting-miscellaneous":{
+        "prefix":[
+            "setting-miscellaneous"
+        ],
+        "body":[
+            "${1|buildarch,dhcp-server,platform,memsize,priority,scriptlet,syslog,syslogs,unixtime,use-cached,version,vram|}"
+        ],
+        "description":[
+            "Miscellaneous settings"
+        ]
+    },
+    "f5-12":{
+        "prefix":[
+            "f"
+        ],
+        "body":[
+            "${1|0x01,0x107e,0x127e,0x137e,0x147e,0x157e,0x167e,0x187e,0x197e|}"
+        ],
+        "description":[
+            "--key F5-F12"
+        ]
+    },
+    "iscsi":{
+        "prefix":[
+            "iscsi"
+        ],
+        "body":[
+            "iscsi:${1|10.253.235.1,boot.ipxe.org|}:::${2:1}:${3:iqn.2010-04.org.ipxe.boot}:${4:public}"
+        ],
+        "description":[
+            "iSCSI SAN URI - iscsi"
+        ]
+    },
+    "aoe":{
+        "prefix":[
+            "aoe"
+        ],
+        "body":[
+            "aoe:e${1:0}.${2:1}"
+        ],
+        "description":[
+            "iSCSI SAN URI - aoe"
+        ]
+    },
+    "fcp":{
+        "prefix":[
+            "fcp"
+        ],
+        "body":[
+            "fcp:${1:20:00:00:1f:16:bc:fe:2f}:${2:0}"
+        ],
+        "description":[
+            "iSCSI SAN URI - fcp"
+        ]
+    }
+}
