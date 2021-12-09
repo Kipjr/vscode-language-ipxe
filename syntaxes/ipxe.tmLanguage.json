@@ -162,6 +162,11 @@
                     ]
                 },
                 {
+                    "name":"variable.other",
+                    "begin":"(?<=\\config|show|set|clear|read|inc|login)\\s",
+                    "end":"(?=\\n|\\s)"
+                },
+                {
                     "name":"support.type.setting.ipxe",
                     "match":"\\b:\\w+\\b"
                 }
