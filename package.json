@@ -3,6 +3,10 @@
     "displayName": "ipxe",
     "description": "iPXE Open Source Boot Firmware - Automate a sequence of iPXE commands using ipxe-files.",
     "version": "0.0.1",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Kipjr/vscode-extension-ipxe.git"
+    },
     "engines": {
         "vscode": "^1.62.0"
     },
@@ -10,16 +14,35 @@
         "Programming Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "ipxe",
-            "aliases": ["ipxe", "ipxe"],
-            "extensions": [".ipxe"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "ipxe",
-            "scopeName": "",
-            "path": "./syntaxes/ipxe.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "ipxe",
+                "aliases": [
+                    "ipxe",
+                    "pxe"
+                ],
+                "extensions": [
+                    ".ipxe"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "ipxe",
+                "scopeName": "",
+                "path": "./syntaxes/ipxe.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "ipxe",
+                "scopeName": "",
+                "path": "./snippets/ipxe.snippets.json"
+            }
+        ]
+    },
+    "dependencies": {
+        "vsce": "^2.5.1"
     }
 }
