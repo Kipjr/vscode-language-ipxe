@@ -5,7 +5,7 @@ Support for the iPXE scripting language in Visual Studio Code.
 
 Adds syntax highlighting support for iPXE (.ipxe). 
 
-![Screenshot iPXE](./images/screenshot1.png?raw=true)
+![Screenshot iPXE](/images/screenshot1.png?raw=true)
 
 ## Bugs
 

@@ -1,65 +1,70 @@
 {
-    "name": "vscode-language-ipxe",
-    "displayName": "iPXE Syntax Highlighting",
-    "publisher": "Kipjr",
-    "description": "iPXE Open Source Boot Firmware - Automate a sequence of iPXE commands using iPXE-files.",
-    "version": "0.0.2",
-    "license": "Apache License 2.0",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Kipjr/vscode-language-ipxe.git"
-    },
-    "categories": [
-        "Programming Languages"
-    ],
-    "files": [
-        "syntaxes/*.json",
-        "images/",
-        "README.md",
-        "LICENSE.md",
-        "*-configuration.json",
-        "CHANGELOG.md"
-    ],
-    "keywords": [
-        "language",
-        "script",
-        "ipxe",
-        "highlight",
-        "syntax"
-    ],
-    "engines": {
-        "vscode": "^1.62.0"
-    },
-    "dependencies": {
-        "vsce": "^2.5.1"
-    },
-    "contributes": {
-        "languages": [
-            {
-                "id": "ipxe",
-                "aliases": [
-                    "ipxe",
-                    "pxe"
-                ],
-                "extensions": [
-                    ".ipxe"
-                ],
-                "configuration": "./language-configuration.json"
-            }
-        ],
-        "grammars": [
-            {
-                "language": "ipxe",
-                "scopeName": "source.ipxe",
-                "path": "./syntaxes/ipxe.tmLanguage.json"
-            }
-        ],
-        "snippets": [
-            {
-                "language": "ipxe",
-                "scopeName": "source.ipxe",
-                "path": "./snippets/ipxe.snippets.json"
-            }
-        ]
-    }
+	"name": "vscode-language-ipxe",
+	"displayName": "iPXE Syntax Highlighting",
+	"publisher": "Kipjr",
+	"description": "iPXE Open Source Boot Firmware - Automate a sequence of iPXE commands using iPXE-files.",
+	"version": "0.0.2",
+	"license": "Apache License 2.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Kipjr/vscode-language-ipxe.git"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"files": [
+		"syntaxes/*.json",
+		"images/",
+		"README.md",
+		"LICENSE.md",
+		"*-configuration.json",
+		"CHANGELOG.md"
+	],
+	"keywords": [
+		"language",
+		"script",
+		"ipxe",
+		"highlight",
+		"syntax"
+	],
+	"engines": {
+		"vscode": "^1.62.0"
+	},
+	"dependencies": {
+		"vsce": "^2.5.1"
+	},
+	"contributes": {
+		"languages": [
+			{
+				"id": "ipxe",
+				"aliases": [
+					"ipxe",
+					"pxe"
+				],
+				"extensions": [
+					".ipxe"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "ipxe",
+				"scopeName": "source.ipxe",
+				"path": "./syntaxes/ipxe.tmLanguage.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "ipxe",
+				"scopeName": "source.ipxe",
+				"path": "./snippets/ipxe.snippets.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "37005d6b-b39f-4057-9175-1a8def679ed6",
+		"publisherDisplayName": "Kipjr",
+		"publisherId": "43f3f219-b210-4d85-b0e6-80ac5f1e4ccc"
+	}
 }
