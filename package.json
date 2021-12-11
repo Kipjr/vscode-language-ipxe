@@ -3,7 +3,7 @@
     "displayName": "iPXE Syntax Highlighting",
     "publisher": "Kipjr",
     "description": "iPXE Open Source Boot Firmware - Automate a sequence of iPXE commands using iPXE-files.",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "Apache License 2.0",
     "repository": {
         "type": "git",
@@ -11,7 +11,7 @@
     },
     "categories": [
         "Programming Languages"
-    ],  
+    ],
     "files": [
         "syntaxes/*.json",
         "images/",
