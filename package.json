@@ -1,19 +1,38 @@
 {
-    "name": "ipxe",
-    "displayName": "ipxe",
-    "description": "iPXE Open Source Boot Firmware - Automate a sequence of iPXE commands using ipxe-files.",
+    "name": "vscode-language-ipxe",
+    "displayName": "iPXE Syntax Highlighting",
+    "publisher": "Kipjr",
+    "description": "iPXE Open Source Boot Firmware - Automate a sequence of iPXE commands using iPXE-files.",
     "version": "0.0.1",
     "license": "Apache License 2.0",
     "repository": {
         "type": "git",
-        "url": "https://github.com/Kipjr/vscode-extension-ipxe.git"
-    },
-    "engines": {
-        "vscode": "^1.62.0"
+        "url": "https://github.com/Kipjr/vscode-language-ipxe.git"
     },
     "categories": [
         "Programming Languages"
+    ],  
+    "files": [
+        "syntaxes/*.json",
+        "images/",
+        "README.md",
+        "LICENSE.md",
+        "*-configuration.json",
+        "CHANGELOG.md"
     ],
+    "keywords": [
+        "language",
+        "script",
+        "ipxe",
+        "highlight",
+        "syntax"
+    ],
+    "engines": {
+        "vscode": "^1.62.0"
+    },
+    "dependencies": {
+        "vsce": "^2.5.1"
+    },
     "contributes": {
         "languages": [
             {
@@ -42,8 +61,5 @@
                 "path": "./snippets/ipxe.snippets.json"
             }
         ]
-    },
-    "dependencies": {
-        "vsce": "^2.5.1"
     }
 }
