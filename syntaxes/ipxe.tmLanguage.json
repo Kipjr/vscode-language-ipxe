@@ -99,7 +99,7 @@
                 },
                 {
                     "name":"entity.other.attribute-name.label",
-                    "match":"(?<=^\\s*):\\w[\\x21-\\x7e]*"
+                    "match":"(?<=^\\s*):\\w[\\x21-\\x7e]*\\n"
                 },
                 {
                     "explanation":"command-line options (e.g. `--no-links` or `-c`)",
