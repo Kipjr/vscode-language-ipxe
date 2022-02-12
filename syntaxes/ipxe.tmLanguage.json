@@ -185,6 +185,21 @@
                         }
                     ]
                 },
+                { 
+                    "name":"entity.other.attribute-name.gotolabel.ipxe",
+                    "begin":"(?<=\\goto)\\s",
+                    "end":"(?=\\s)",
+                    "patterns": [
+                        {
+                            "name":"support.variable.short.ipxe",
+                            "match":"\\$\\w+"
+                        },
+                        {
+                            "name":"support.variable.long.ipxe",
+                            "begin":"(?<=\\$\\{)",
+                            "end":"(?=\\})"
+                        }
+                    ]
                 },
                 {
                     "name":"support.type.setting.ipxe",
