@@ -151,7 +151,7 @@
         "variable":{
             "patterns":[
                 {
-                    "name":"support.variable.setting.ipxe",
+                    "name":"support.variable.long.ipxe",
                     "begin":"(?<=\\$\\{)",
                     "end":"(?=\\})",
                     "patterns":[
