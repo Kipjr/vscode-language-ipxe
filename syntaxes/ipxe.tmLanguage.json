@@ -151,6 +151,14 @@
         "variable":{
             "patterns":[
                 {
+                    "name":"source.ipxe",
+                    "match":"\\$\\{\\}"
+                },
+                {
+                    "name":"support.variable.short.ipxe",
+                    "match":"(?<=\\$)\\w+"
+                },
+                {
                     "name":"support.variable.long.ipxe",
                     "begin":"(?<=\\$\\{)",
                     "end":"(?=\\})",
