@@ -169,10 +169,22 @@
                         }
                     ]
                 },
-                {
-                    "name":"variable.other",
-                    "begin":"(?<=\\config|show|set|clear|read|inc|login)\\s",
-                    "end":"(?=\\n|\\s)"
+                { 
+                    "name":"support.variable.keyword.ipxe",
+                    "begin":"\\b(?<=\\config|show|set|clear|read|inc|login)\\s",
+                    "end":"(?=\\n|\\s)",
+                    "patterns": [
+                        {
+                            "name":"support.variable.short.ipxe",
+                            "match":"\\$\\w+"
+                        },
+                        {
+                            "name":"support.variable.long.ipxe",
+                            "begin":"(?<=\\$\\{)",
+                            "end":"(?=\\})"
+                        }
+                    ]
+                },
                 },
                 {
                     "name":"support.type.setting.ipxe",
