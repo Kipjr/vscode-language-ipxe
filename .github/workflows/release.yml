@@ -13,10 +13,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Install Node.js
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
-        node-version: 10.x
-    - run: npm install
+        node-version: latest
+    - name: Install package
+      run: npm install
     - name: Publish
       if: startsWith( github.ref, 'refs/tags/v')
       run: npm run deploy
