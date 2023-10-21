@@ -18,8 +18,19 @@ jobs:
         node-version: latest
     - name: Install package
       run: npm install
-    - name: Publish
+    - name: Publish to NPM
       if: startsWith( github.ref, 'refs/tags/v')
       run: npm run deploy
       env:
         VSCE_PAT: ${{ secrets.VSCE_PAT }}
+    - name: Publish to Open VSX Registry
+      if: startsWith( github.ref, 'refs/tags/v')
+      uses: HaaLeo/publish-vscode-extension@v1
+      with:
+        pat: ${{ secrets.OPENVSX_PAT }}
+    - name: Publish to Visual Studio Marketplace
+      if: startsWith( github.ref, 'refs/tags/v')
+      uses: HaaLeo/publish-vscode-extension@v1
+      with:
+        pat: ${{ secrets.VSMARKETPLACE_PAT }}
+        registryUrl: https://marketplace.visualstudio.com
