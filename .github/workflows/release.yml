@@ -17,13 +17,15 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: latest
+    - name: Install vsce
+      run:  npm install -g ovsx @vscode/vsce
     - name: Install package
       run: npm install
-    - name: Publish to NPM
-      if: startsWith( github.ref, 'refs/tags/v')
-      run: npm run deploy
-      env:
-        VSCE_PAT: ${{ secrets.VSCE_PAT }}
+#    - name: Publish to NPM
+#      if: startsWith( github.ref, 'refs/tags/v')
+#      run: npm run deploy
+#      env:
+#        VSCE_PAT: ${{ secrets.VSCE_PAT }}
     - name: Publish to Open VSX Registry
       if: startsWith( github.ref, 'refs/tags/v')
       uses: HaaLeo/publish-vscode-extension@v1
