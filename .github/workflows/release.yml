@@ -27,6 +27,7 @@ jobs:
 #      env:
 #        VSCE_PAT: ${{ secrets.VSCE_PAT }}
     - name: Publish to Open VSX Registry
+      id: publishToOpenVSX
       if: startsWith( github.ref, 'refs/tags/v')
       uses: HaaLeo/publish-vscode-extension@v1
       with:
@@ -37,3 +38,4 @@ jobs:
       with:
         pat: ${{ secrets.VSMARKETPLACE_PAT }}
         registryUrl: https://marketplace.visualstudio.com
+        extensionFile: ${{ steps.publishToOpenVSX.outputs.vsixPath }}
